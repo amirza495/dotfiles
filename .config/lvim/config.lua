@@ -21,8 +21,7 @@ lvim.keys.normal_mode['<Leader>bd'] = ":bd"
 -- enable formatting on save
 lvim.format_on_save.enabled = true
 
--- configure treesitter to use json with comments
--- run :TSInstall jsonc
+-- unmap bindings that conflict with codeium
 lvim.lsp.buffer_mappings.insert_mode['<M-h>'] = nil
 lvim.lsp.buffer_mappings.insert_mode['<M-j>'] = nil
 lvim.lsp.buffer_mappings.insert_mode['<M-k>'] = nil
@@ -30,7 +29,7 @@ lvim.lsp.buffer_mappings.insert_mode['<M-l>'] = nil
 
 -- Plugins
 -- Install plugins
---
+-- TODO: adjust codeium bindings to not conflict with window manager
 lvim.plugins = {
   {
     'Exafunction/codeium.vim',

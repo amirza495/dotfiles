@@ -12,9 +12,6 @@ then
 fi
 export PATH
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
@@ -52,7 +49,7 @@ export NVM_DIR="$HOME/.nvm"
 
 alias obsidian="~/.appimages/Obsidian-1.5.3.AppImage"
 
-# enable vi mode and set the escape key to kj
+# enable vi mode
 set -o vi
 EDITOR=lvim
 
