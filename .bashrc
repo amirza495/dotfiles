@@ -1,0 +1,58 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+# customization of terminal prompt
+# setup inspired by https://unix.stackexchange.com/questions/105958/terminal-prompt-not-wrapping-correctly
+# and https://askubuntu.com/questions/670594/making-bash-prompt-bold
+red="\001$(tput setaf 1)\002"
+green="\001$(tput setaf 2)\002"
+blue="\001$(tput setaf 4)\002"
+cyan="\001$(tput setaf 6)\002"
+bold="\001$(tput bold)\002"
+reset="\001$(tput sgr0)\002"
+bred=$bold$red
+bcyan=$bold$cyan
+
+PS1="$bred\u@\h"
+PS1+="$reset:"
+PS1+="$bcyan\w"
+PS1+="$reset\$ "
+unset red green blue cyan bold reset bred bcyan
+
+unset rc
+export PATH=~/.local/bin:"$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
+alias obsidian="~/.appimages/Obsidian-1.5.3.AppImage"
+
+# enable vi mode and set the escape key to kj
+set -o vi
+EDITOR=lvim
+
