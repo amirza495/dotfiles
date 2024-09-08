@@ -1,10 +1,15 @@
 #!/bin/bash
 # install requirements
-sudo apt update
-sudo apt install python3 python3-pip git make ripgrep zip curl wget -y
+# Ubuntu
+#sudo apt update
+#sudo apt install python3 python3-pip git make ripgrep zip curl wget -y
+
+# OpenSUSE
+#sudo zypper in python3 python3-pip git make ripgrep zip curl wget -y
+# sudo zypper install -t pattern devel_basis
 
 # install nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage
 chmod u+x nvim.appimage 
 ./nvim.appimage --appimage-extract
 mv squashfs-root .nvim-root
