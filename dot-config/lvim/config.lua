@@ -78,5 +78,12 @@ lvim.plugins = {
     "michaeljsmith/vim-indent-object",
     lazy = false,
     event = "BufEnter",
+  },
+  {
+    "tadmccorkle/markdown.nvim",
+    ft = "markdown",
+    opts = {
+      -- configuration here or empty for defaults
+    },
   }
 }
