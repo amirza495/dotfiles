@@ -85,5 +85,10 @@ lvim.plugins = {
     opts = {
       -- configuration here or empty for defaults
     },
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
   }
 }
