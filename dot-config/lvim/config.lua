@@ -22,10 +22,14 @@ lvim.keys.normal_mode['<Leader>bd'] = ":bd"
 lvim.format_on_save.enabled = true
 
 -- unmap bindings that conflict with codeium
-lvim.lsp.buffer_mappings.insert_mode['<M-h>'] = nil
-lvim.lsp.buffer_mappings.insert_mode['<M-j>'] = nil
-lvim.lsp.buffer_mappings.insert_mode['<M-k>'] = nil
-lvim.lsp.buffer_mappings.insert_mode['<M-l>'] = nil
+-- lvim.lsp.buffer_mappings.insert_mode['<M-h>'] = nil
+-- lvim.lsp.buffer_mappings.insert_mode['<M-j>'] = nil
+-- lvim.lsp.buffer_mappings.insert_mode['<M-k>'] = nil
+-- lvim.lsp.buffer_mappings.insert_mode['<M-l>'] = nil
+-- lvim.keys.insert_mode['<M-h>'] = false
+-- lvim.keys.insert_mode['<M-l>'] = false
+-- lvim.keys.insert_mode['<M-j>'] = false
+-- lvim.keys.insert_mode['<M-k>'] = false
 
 -- Plugins
 -- Install plugins
@@ -34,22 +38,28 @@ lvim.plugins = {
   {
     'Exafunction/codeium.vim',
     event = 'BufEnter',
-    keys = {
-      { '<M-k>', function() vim.fn['codeium#CycleCompletions'](1) end,
-        {
-          noremap = true,
-          expr = true,
-          silent = true
-        }, },
-      { '<M-j>', function() vim.fn['codeium#CycleCompletions'](-1) end,
-        {
-          noremap = true,
-          expr = true,
-          silent = true
-        }, },
-      { '<M-h>', function() vim.fn['codeium#Accept']() end, { noremap = true, expr = true, silent = true }, },
-      { '<M-l>', function() vim.fn['codeium#Clear']() end,  { noremap = true, expr = true, silent = true }, },
-    },
+    -- keys = {
+    --   {
+    --     '<M-k>',
+    --     function() vim.fn['codeium#CycleCompletions'](1) end,
+    --     {
+    --       mode = "i",
+    --       noremap = true,
+    --       expr = true,
+    --       silent = true
+    --     },
+    --   },
+    --   { '<M-j>', function() vim.fn['codeium#CycleCompletions'](-1) end,
+    --     {
+    --       mode = "i",
+    --       noremap = true,
+    --       expr = true,
+    --       silent = true
+    --     },
+    --   },
+    --   { '<M-h>', function() vim.fn['codeium#Accept']() end, { mode = "i", noremap = true, expr = true, silent = true }, },
+    --   { '<M-l>', function() vim.fn['codeium#Clear']() end,  { mode = "i", noremap = true, expr = true, silent = true }, },
+    -- },
   },
   {
     "benlubas/molten-nvim",
@@ -78,5 +88,23 @@ lvim.plugins = {
     "michaeljsmith/vim-indent-object",
     lazy = false,
     event = "BufEnter",
+  },
+  {
+    "tadmccorkle/markdown.nvim",
+    ft = "markdown",
+    opts = {
+      -- configuration here or empty for defaults
+    },
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
   }
 }
+
+-- Codeium bindings
+lvim.keys.insert_mode['<M-k>'] = { function() return vim.fn['codeium#CycleCompletions'](1) end }
+lvim.keys.insert_mode['<M-j>'] = { function() return vim.fn['codeium#CycleCompletions'](-1) end }
+lvim.keys.insert_mode['<M-l>'] = { function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true } }
+lvim.keys.insert_mode['<M-h>'] = { function() return vim.fn['codeium#Clear']() end }
