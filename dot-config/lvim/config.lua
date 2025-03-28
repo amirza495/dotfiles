@@ -21,6 +21,8 @@ lvim.keys.normal_mode['<Leader>bd'] = ":bd"
 -- enable formatting on save
 lvim.format_on_save.enabled = true
 
+-- require("lspconfig").dartls.setup {}
+
 -- unmap bindings that conflict with codeium
 -- lvim.lsp.buffer_mappings.insert_mode['<M-h>'] = nil
 -- lvim.lsp.buffer_mappings.insert_mode['<M-j>'] = nil

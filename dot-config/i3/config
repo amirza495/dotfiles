@@ -64,28 +64,28 @@ bindsym $mod+d exec --no-startup-id ulauncher
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $altMod+h focus left
+bindsym $altMod+j focus down
+bindsym $altMod+k focus up
+bindsym $altMod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $altMod+Left focus left
+bindsym $altMod+Down focus down
+bindsym $altMod+Up focus up
+bindsym $altMod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $altMod+Shift+h move left
+bindsym $altMod+Shift+j move down
+bindsym $altMod+Shift+k move up
+bindsym $altMod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $altMod+Shift+Left move left
+bindsym $altMod+Shift+Down move down
+bindsym $altMod+Shift+Up move up
+bindsym $altMod+Shift+Right move right
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
