@@ -1,6 +1,6 @@
 return {
 	{
-		'stevearc/conform.nvim',
+		"stevearc/conform.nvim",
 		opts = {
 
 			formatters_by_ft = {
@@ -27,10 +27,11 @@ return {
 			lint.linters_by_ft = {
 				markdown = { "vale" },
 				python = { "flake8" },
-				cpp = { "clangtidy" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+				-- clang-tidy is used through clangd, so don't include c or cpp files here
+				pattern = { "*.py", "*.md", "*.markdown" },
 				callback = function()
 					lint.try_lint()
 				end,
@@ -40,7 +41,7 @@ return {
 	{
 		"rshkarin/mason-nvim-lint",
 		opts = {
-			ensure_installed = { "vale", "flake8", "clangtidy" },
+			ensure_installed = { "vale", "flake8" },
 		},
 	},
 }
