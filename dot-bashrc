@@ -40,7 +40,6 @@ PS1+="$reset\$ "
 unset red green blue cyan bold reset bred bcyan
 
 unset rc
-export PATH=~/.local/bin:"$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -51,12 +50,15 @@ alias obsidian="~/.appimages/Obsidian-1.5.3.AppImage"
 
 # enable vi mode
 set -o vi
-EDITOR=lvim
+EDITOR=nvim
 
-export PATH="$PATH:$HOME/.local/bin"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 . "$HOME/.cargo/env"
-export PATH="$PATH:$HOME/.local/bin"
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+source /usr/share/bash-completion/completions/fzf
+alias connexa-start='openvpn3 session-start --config /opt/openvpn3/configs/adam-XPS-17_adam_mirza@matrixspace.openvpn.com_Boston_MA.ovpn' 
+alias connexa-stop='openvpn3 session-manage --disconnect --config /opt/openvpn3/configs/adam-XPS-17_adam_mirza@matrixspace.openvpn.com_Boston_MA.ovpn'

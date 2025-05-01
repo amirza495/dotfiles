@@ -1,6 +1,7 @@
 -- configure line numbers
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.o.termguicolors = true
 
 -- fix end of line issues
 vim.opt.fixeol = true
@@ -9,6 +10,10 @@ vim.opt.fixeol = true
 --	virtual_text = true,
 --})
 --vim.diagonstic.config({ virtual_text = { severity = { min = vim.diagonsitc.severity.HINT, max = vim.diagnostic.seeverity.ERROR },},)
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- configure tab width and expansions for different languages
 vim.api.nvim_create_augroup("FileTypeSpecificTabs", { clear = true })
