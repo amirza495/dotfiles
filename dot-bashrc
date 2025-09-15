@@ -59,6 +59,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
-source /usr/share/bash-completion/completions/fzf
+# source /usr/share/bash-completion/completions/fzf
+eval "$(fzf --bash)"
 alias connexa-start='openvpn3 session-start --config /opt/openvpn3/configs/adam-XPS-17_adam_mirza@matrixspace.openvpn.com_Boston_MA.ovpn' 
 alias connexa-stop='openvpn3 session-manage --disconnect --config /opt/openvpn3/configs/adam-XPS-17_adam_mirza@matrixspace.openvpn.com_Boston_MA.ovpn'
+
+export SSH_AUTH_SOCK=~/.1password/agent.sock
