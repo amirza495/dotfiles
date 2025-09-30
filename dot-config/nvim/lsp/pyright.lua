@@ -1,0 +1,5 @@
+return {
+	analysis = {
+		typeCheckinggMode = "off",
+	},
+}

@@ -48,3 +48,10 @@ vim.keymap.set("v", "<Leader>/", "<Plug>(comment_toggle_linewise_visual)", opts)
 
 -- error viewing
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
+-- lsp
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
+vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
+vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, {})
